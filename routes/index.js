@@ -4,19 +4,19 @@ var fs = require('fs')
 exports.index = function(req, res) {
   fs.readdir(__dirname+'/../../posts/improv/', function(err, improv) {
     var recentImprov = improv[improv.length-1]
-    fs.readFile(__dirname+'/../../posts/improv/'+recentImprov, 'utf8', function(err, content) {
+    fs.readFile(__dirname+'/../posts/improv/'+recentImprov, 'utf8', function(err, content) {
       var improvContent = marked(content)
     })
   })
-  fs.readdir(__dirname+'/../../posts/posts/', function(err, posts) {
+  fs.readdir(__dirname+'/../posts/posts/', function(err, posts) {
     var recentImprov = posts[posts.length-1]
     fs.readFile(__dirname+'/../../posts/posts/'+recentPosts, function(err, content) {
       var postsContent = marked(content)
     })
   })
-  fs.readdir(__dirname+'/../../posts/comedy/', function(err, comedy) {
+  fs.readdir(__dirname+'/../posts/comedy/', function(err, comedy) {
     var recentComedy = comedy[comedy.length-1]
-    fs.readFile(__dirname+'/../../posts/comedy'+recentComedy, function(err, content) {
+    fs.readFile(__dirname+'/../posts/comedy'+recentComedy, function(err, content) {
       var comedyContent = marked(content)
     })
   })
