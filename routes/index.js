@@ -14,11 +14,11 @@ exports.index = function(req, res) {
       var postsContent = marked(content)
     })
   })
-  fs.readdir(__dir+'/../../posts/comedy/', function(err, comedy) {
+  fs.readdir(__dirname+'/../../posts/comedy/', function(err, comedy) {
     var recentComedy = comedy[comedy.length-1]
     fs.readFile(__dirname+'/../../posts/comedy'+recentComedy, function(err, content) {
       var comedyContent = marked(content)
     })
   })
-  res.render('index', title: 'welcome to dan', improv:improvContent, posts:postsContent, comedy:comedyContent)
+  res.render('index', {title: 'welcome to dan', improv:improvContent, posts:postsContent, comedy:comedyContent})
 }
