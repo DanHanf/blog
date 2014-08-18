@@ -2,16 +2,17 @@ doctype html
 html
   head
     title #{title}
+    link(rel='stylesheet', href='/css/style.css')
   body
 
     h4 hello
-
-    div#improv
-      block improv
-      div!=improv
-    div#post
-      block post
-      div!=post
-    div#comedy
-      block comedy
-      div!=comedy
+    div#homeBody
+      span#improv
+        block improv
+        div!=improv
+      span#post
+        block post
+        div!=post
+      span#comedy
+        block comedy
+        div!=comedy
