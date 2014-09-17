@@ -29,6 +29,7 @@ body {
   border: outset #A3A3A3;
   color: #000;
   text-shadow: #A3A3A3 -3px 3px;
+  overflow: auto;
 }
 #improv h1 {
   width: 90%;
@@ -45,7 +46,6 @@ body {
   background-color:#B5B5B5;
   color: #000;
   text-shadow: #A3A3A3 -3px 3px;
-  padding:5px;
   overflow: auto;
 }
 #post h1 {
@@ -63,6 +63,7 @@ body {
   border: outset #A3A3A3;
   color: #000;
   text-shadow: #A3A3A3 -3px 3px;
+  overflow: auto;
 }
 #comedy h1 {
   width: 90%;
