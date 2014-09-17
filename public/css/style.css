@@ -33,7 +33,8 @@ body {
 }
 #improv h1 {
   width: 90%;
-  text-align: center
+  text-align: center;
+  margin-left:3%;
 }
 #improv p {
   height: 400px;
@@ -50,7 +51,8 @@ body {
 }
 #post h1 {
   width: 90%;
-  text-align: center
+  text-align: center;
+  margin-left:3%;
 }
 #post p {
   height:400px;
@@ -68,6 +70,7 @@ body {
 #comedy h1 {
   width: 90%;
   text-align: center;
+  margin-left:3%;
 }
 #comedy p {
   height:400px;
