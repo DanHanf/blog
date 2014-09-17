@@ -36,6 +36,7 @@ body {
 }
 #improv p {
   height: 400px;
+  padding: 15px;
 }
 #post {
   float: left;
@@ -53,7 +54,7 @@ body {
 }
 #post p {
   height:400px;
-  padding: 10px;
+  padding: 15px;
 }
 #comedy {
   float: left;
@@ -69,4 +70,5 @@ body {
 }
 #comedy p {
   height:400px;
+  padding: 15px;
 }
