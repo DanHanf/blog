@@ -1,4 +1,22 @@
+body {
+  background-color:#EEFF37;
+}
+#innerWrapper {
+  background-color:#0001FF;
+  border: outset #23BD00;
+  margin-top:2%;
+  margin-left:auto;
+  margin-right:auto;
+  width: 95%;
+  height: 600px;
+}
+#logo {
+  width: 520px;
+  height: 100px;
+  margin-left: 26%;
+}
 #homeBody {
+  padding:10px;
   margin: auto;
   width: 90%;
   height: 50%;
@@ -19,6 +37,7 @@
   background-color:#B5B5B5;
   color: #000;
   text-shadow: #A3A3A3 -3px 3px;
+  padding-left:5px;
 }
 #comedy {
   float: left;

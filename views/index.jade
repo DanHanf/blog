@@ -4,15 +4,15 @@ html
     title #{title}
     link(rel='stylesheet', href='/css/style.css')
   body
-
-    h4 hello
-    div#homeBody
-      span
-        block improv
-          div#improv!=improv
-      span
-        block post
-          div#post!=post
-      span
-        block comedy
-          div#comedy!=comedy
+    div#innerWrapper
+      img#logo(src='/img/logo.gif')
+      div#homeBody
+        span
+          block improv
+            div#improv!=improv
+        span
+          block post
+            div#post!=post
+        span
+          block comedy
+            div#comedy!=comedy
