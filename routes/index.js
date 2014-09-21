@@ -6,8 +6,8 @@ var fs = require('fs')
 exports.index = function(req, res) {
   getImprovContent(function(err, improv) {
     getPostContent(function(err, post) {
-      getComedyContent(function(err, comedy) {
-        res.render('index', {title: 'welcome to dan', improv:improv, post:post, comedy:comedy})
+      getTechContent(function(err, tech) {
+        res.render('index', {title: 'welcome to dan', improv:improv, post:post, tech:tech})
       })
     })
   })
@@ -34,12 +34,16 @@ function getPostContent(cb) {
   })
 }
 
-function getComedyContent(cb) {
-  fs.readdir(__dirname+'/../posts/comedy/', function(err, comedy) {
-    var recentComedy = comedy[comedy.length-1]
-    fs.readFile(__dirname+'/../posts/comedy/'+recentComedy, 'utf8', function(err, content) {
-      var comedyContent = marked(content)
-      cb(err, comedyContent)
+function getTechContent(cb) {
+  fs.readdir(__dirname+'/../posts/tech/', function(err, tech) {
+    var recentTech = tech[tech.length-1]
+    fs.readFile(__dirname+'/../posts/tech/'+recentTech, 'utf8', function(err, content) {
+      var techContent = marked(content)
+      cb(err, techContent)
     })
   })
 }  
+
+exports.list = function(cb) {
+
+}
