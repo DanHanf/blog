@@ -45,5 +45,11 @@ function getTechContent(cb) {
 }  
 
 exports.list = function(cb) {
-
+  getImprovContent(function(err,improv) {
+    getPostContent(function(err,post) {
+      getTechContent(function(err,tech) {
+        
+      })
+    })
+  })
 }
