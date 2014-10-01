@@ -20,7 +20,7 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', index.index);
-app.get('/posts', index.posts);
+app.get('/oldPosts', index.list);
 
 
 http.createServer(app).listen(app.get('port'), function() {

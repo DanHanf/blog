@@ -51,7 +51,7 @@ exports.list = function(cb) {
         getList(improv, 'improv', function(improvPosts) {
           getList(post, 'post', function(postPosts) {
             getList(tech, 'tech', function(techPosts) {
-              res.render('OldPosts', {improvPosts:improvPosts, postPosts:postPosts, techPosts:techPosts})
+              res.render('oldPosts', {improvPosts:improvPosts, postPosts:postPosts, techPosts:techPosts})
             })
           })
         })
@@ -63,6 +63,7 @@ exports.list = function(cb) {
 function getList(files, cat, cb) {
   var postInfos = []
   var i = 1
+  console.log(files)
   _.each(files, function(file) {
     fs.readFile(__dirname + '/../'+cat+'/'+file, 'utf8', function(err, content) {
       var title = content.split('===')[0].replace(/(\r\n|\n|\r)/gm, "")
