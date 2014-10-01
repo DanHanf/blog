@@ -53,3 +53,19 @@ exports.list = function(cb) {
     })
   })
 }
+
+function getList(files, cat) {
+  var postInfos = []
+  var i = 1
+  _.each(files, function(file) {
+    fs.readFile(__dirname + '/../'+cat+'/'+file, 'utf8', function(err, content) {
+      var title = content.split('===')[0].replace(/(\r\n|\n|\r)/gm, "")
+      var url = title.split(' ').join('-').replace(/(\r\n|\n|\r)/gm, "")
+      postInfos.push({id:file, title:title, url:url})
+      if(i >= files.length) {
+        postInfos = _.sortBy(postInfos, 'id')
+      }
+      i++
+    })
+  })
+}
