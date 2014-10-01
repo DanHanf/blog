@@ -48,13 +48,19 @@ exports.list = function(cb) {
   getImprovContent(function(err,improv) {
     getPostContent(function(err,post) {
       getTechContent(function(err,tech) {
-        
+        getList(improv, 'improv', function(improvPosts) {
+          getList(post, 'post', function(postPosts) {
+            getList(tech, 'tech', function(techPosts) {
+              res.render('OldPosts', {improvPosts:improvPosts, postPosts:postPosts, techPosts:techPosts})
+            })
+          })
+        })
       })
     })
   })
 }
 
-function getList(files, cat) {
+function getList(files, cat, cb) {
   var postInfos = []
   var i = 1
   _.each(files, function(file) {
@@ -64,6 +70,7 @@ function getList(files, cat) {
       postInfos.push({id:file, title:title, url:url})
       if(i >= files.length) {
         postInfos = _.sortBy(postInfos, 'id')
+        cb(postInfos)
       }
       i++
     })
