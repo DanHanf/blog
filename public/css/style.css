@@ -24,7 +24,7 @@ body {
 }
 #improv {
   float: left;
-  width: 350px;
+  width: 345px;
   background-color:#B5B5B5;
   border: outset #A3A3A3;
   color: #000;
@@ -43,7 +43,7 @@ body {
 #post {
   float: left;
   border: inset #A3A3A3;
-  width: 350px;
+  width: 345px;
   background-color:#B5B5B5;
   color: #000;
   text-shadow: #A3A3A3 -3px 3px;
@@ -60,7 +60,7 @@ body {
 }
 #tech {
   float: left;
-  width: 350px;
+  width: 345px;
   background-color:#B5B5B5;
   border: outset #A3A3A3;
   color: #000;

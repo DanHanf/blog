@@ -18,7 +18,6 @@ function getImprovContent(cb) {
     var recentImprov = improv[improv.length-1]
     fs.readFile(__dirname+'/../posts/improv/'+recentImprov, 'utf8', function(err, content) {
       var improvContent = marked(content)
-      console.log(improvContent)
       cb(err, improvContent)
     })
   })
@@ -63,9 +62,10 @@ exports.list = function(cb) {
 function getList(files, cat, cb) {
   var postInfos = []
   var i = 1
-  console.log(files)
   _.each(files, function(file) {
+    console.log(files)
     fs.readFile(__dirname + '/../'+cat+'/'+file, 'utf8', function(err, content) {
+      console.log(__dirname + '/../'+cat+'/'+file)
       var title = content.split('===')[0].replace(/(\r\n|\n|\r)/gm, "")
       var url = title.split(' ').join('-').replace(/(\r\n|\n|\r)/gm, "")
       postInfos.push({id:file, title:title, url:url})
