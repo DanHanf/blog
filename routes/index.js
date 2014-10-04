@@ -43,17 +43,19 @@ function getTechContent(cb) {
   })
 }  
 
+function getFileList(dir, cb) {
+  fs.readdir(__dirname+'/../posts/'+dir+'/', function(err, files) {
+    getList(files, dir, function(err,posts) {
+      return posts
+    })
+  })
+}
+
 exports.list = function(cb) {
-  getImprovContent(function(err,improv) {
-    getPostContent(function(err,post) {
-      getTechContent(function(err,tech) {
-        getList(improv, 'improv', function(improvPosts) {
-          getList(post, 'post', function(postPosts) {
-            getList(tech, 'tech', function(techPosts) {
-              res.render('oldPosts', {improvPosts:improvPosts, postPosts:postPosts, techPosts:techPosts})
-            })
-          })
-        })
+  getFileList('improv', function(err, improvPosts) {
+    getFileList('posts', function(err,postPosts) {
+      getFileList('tech', function(err,techPosts) {
+        res.render('oldPosts', {improvPosts:improvPosts, postPosts:postPosts, techPosts:techPosts})
       })
     })
   })
@@ -62,10 +64,9 @@ exports.list = function(cb) {
 function getList(files, cat, cb) {
   var postInfos = []
   var i = 1
+  console.log(files)
   _.each(files, function(file) {
-    console.log(files)
-    fs.readFile(__dirname + '/../'+cat+'/'+file, 'utf8', function(err, content) {
-      console.log(__dirname + '/../'+cat+'/'+file)
+    fs.readFile(__dirname + '/../posts/'+cat+'/'+file, 'utf8', function(err, content) {
       var title = content.split('===')[0].replace(/(\r\n|\n|\r)/gm, "")
       var url = title.split(' ').join('-').replace(/(\r\n|\n|\r)/gm, "")
       postInfos.push({id:file, title:title, url:url})

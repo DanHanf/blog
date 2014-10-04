@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title #{title}
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    div#postList
+      hr
+      h2 Posts
+      each improvPost in improvPosts
+        div#improvPosts
+          a(href='/post/#{improvPost.url') #{improvPost.title}
