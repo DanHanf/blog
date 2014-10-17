@@ -5,14 +5,22 @@ html
     link(rel='stylesheet', href='/css/style.css')
   body
     div#postList
-      hr
       h2 Posts
-      each improvPost in improvPosts
-        div#improvPosts
+      div#improvPosts
+        h3 improv
+        each improvPost in improvPosts
           a(href='/post/#{improvPost.url}') #{improvPost.title}
-      each postPost in postPosts
-        div#postPosts
+          br
+        hr
+      div#postPosts
+        h3 shit
+        each postPost in postPosts
           a(href='/post/#{postPost.url}') #{postPost.title}
-      each techPost in techPosts
-        div#techPosts
+          br
+        hr
+      div#techPosts
+        h3 tech
+        each techPost in techPosts
           a(href='/post/#{techPost.url}') #{techPost.title}
+          br
+        hr
