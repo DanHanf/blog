@@ -9,4 +9,10 @@ html
       h2 Posts
       each improvPost in improvPosts
         div#improvPosts
-          a(href='/post/#{improvPost.url') #{improvPost.title}
+          a(href='/post/#{improvPost.url}') #{improvPost.title}
+      each postPost in postPosts
+        div#postPosts
+          a(href='/post/#{postPost.url}') #{postPost.title}
+      each techPost in techPosts
+        div#techPosts
+          a(href='/post/#{techPost.url}') #{techPost.title}

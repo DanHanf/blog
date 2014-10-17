@@ -7,6 +7,7 @@ exports.index = function(req, res) {
   getImprovContent(function(err, improv) {
     getPostContent(function(err, post) {
       getTechContent(function(err, tech) {
+        console.log(res)
         res.render('index', {title: 'welcome to dan', improv:improv, post:post, tech:tech})
       })
     })
@@ -46,14 +47,16 @@ function getTechContent(cb) {
 function getFileList(dir, cb) {
   fs.readdir(__dirname+'/../posts/'+dir+'/', function(err, files) {
     getList(files, dir, function(err,posts) {
-      return posts
+      cb(null, posts)
     })
   })
 }
 
-exports.list = function(cb) {
+exports.list = function(req, res) {
   getFileList('improv', function(err, improvPosts) {
+    console.log(err)
     getFileList('posts', function(err,postPosts) {
+      console.log(err)
       getFileList('tech', function(err,techPosts) {
         res.render('oldPosts', {improvPosts:improvPosts, postPosts:postPosts, techPosts:techPosts})
       })
@@ -70,9 +73,10 @@ function getList(files, cat, cb) {
       var title = content.split('===')[0].replace(/(\r\n|\n|\r)/gm, "")
       var url = title.split(' ').join('-').replace(/(\r\n|\n|\r)/gm, "")
       postInfos.push({id:file, title:title, url:url})
+      console.log(postInfos)
       if(i >= files.length) {
         postInfos = _.sortBy(postInfos, 'id')
-        cb(postInfos)
+        cb(null, postInfos)
       }
       i++
     })
