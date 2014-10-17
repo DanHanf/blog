@@ -70,7 +70,7 @@ function getList(files, cat, cb) {
   console.log(files)
   _.each(files, function(file) {
     fs.readFile(__dirname + '/../posts/'+cat+'/'+file, 'utf8', function(err, content) {
-      var title = content.split('===')[0].replace(/(\r\n|\n|\r)/gm, "")
+      var title = content.split('===')[1].replace(/(\r\n|\n|\r)/gm, "")
       var url = title.split(' ').join('-').replace(/(\r\n|\n|\r)/gm, "")
       postInfos.push({id:file, title:title, url:url})
       console.log(postInfos)
