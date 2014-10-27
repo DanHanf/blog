@@ -9,18 +9,18 @@ html
       div#improvPosts
         h3 improv
         each improvPost in improvPosts
-          a(href='/post/#{improvPost.url}') #{improvPost.title}
+          a(href='/posts/improv/#{improvPost.url}') #{improvPost.title}
           br
         hr
       div#postPosts
         h3 shit
         each postPost in postPosts
-          a(href='/post/#{postPost.url}') #{postPost.title}
+          a(href='/post/posts/#{postPost.url}') #{postPost.title}
           br
         hr
       div#techPosts
         h3 tech
         each techPost in techPosts
-          a(href='/post/#{techPost.url}') #{techPost.title}
+          a(href='/posts/tech/#{techPost.url}') #{techPost.title}
           br
         hr

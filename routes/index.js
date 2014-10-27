@@ -58,7 +58,7 @@ exports.list = function(req, res) {
     getFileList('posts', function(err,postPosts) {
       console.log(err)
       getFileList('tech', function(err,techPosts) {
-        res.render('oldPosts', {improvPosts:improvPosts, postPosts:postPosts, techPosts:techPosts})
+        res.render('oldPosts', {improvPosts:improvPosts, postPosts:postPosts, techPosts:techPosts, title:'ye ole postses'})
       })
     })
   })
@@ -81,4 +81,9 @@ function getList(files, cat, cb) {
       i++
     })
   })
+}
+
+exports.post = function post(req, res) {
+  var post = _.find(postInfos, {url:req.params.name})
+  fs.readFile(__dirname+'/posts/')
 }
