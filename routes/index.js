@@ -2,12 +2,15 @@ var fs = require('fs')
   , _ = require('lodash')
   , path = require('path')
   , marked = require('marked')
+  , postInfos
+  , improvBucket = []
+  , postsBucket = []
+  , techBucket = []
 
 exports.index = function(req, res) {
   getImprovContent(function(err, improv) {
     getPostContent(function(err, post) {
       getTechContent(function(err, tech) {
-        console.log(res)
         res.render('index', {title: 'welcome to dan', improv:improv, post:post, tech:tech})
       })
     })
@@ -54,10 +57,14 @@ function getFileList(dir, cb) {
 
 exports.list = function(req, res) {
   getFileList('improv', function(err, improvPosts) {
-    console.log(err)
+    if(err) throw err
+    improvBucket = improvPosts
     getFileList('posts', function(err,postPosts) {
-      console.log(err)
+      if(err) throw err
+      postsBucket = postPosts
       getFileList('tech', function(err,techPosts) {
+        if(err) throw err
+        techBucket = techPosts
         res.render('oldPosts', {improvPosts:improvPosts, postPosts:postPosts, techPosts:techPosts, title:'ye ole postses'})
       })
     })
@@ -65,15 +72,13 @@ exports.list = function(req, res) {
 }
 
 function getList(files, cat, cb) {
-  var postInfos = []
+  postInfos = []
   var i = 1
-  console.log(files)
   _.each(files, function(file) {
     fs.readFile(__dirname + '/../posts/'+cat+'/'+file, 'utf8', function(err, content) {
-      var title = content.split('===')[1].replace(/(\r\n|\n|\r)/gm, "")
+      var title = content.split('---')[0].split('===')[1].replace(/(\r\n|\n|\r)/gm, "")
       var url = title.split(' ').join('-').replace(/(\r\n|\n|\r)/gm, "")
       postInfos.push({id:file, title:title, url:url})
-      console.log(postInfos)
       if(i >= files.length) {
         postInfos = _.sortBy(postInfos, 'id')
         cb(null, postInfos)
@@ -83,7 +88,36 @@ function getList(files, cat, cb) {
   })
 }
 
-exports.post = function post(req, res) {
-  var post = _.find(postInfos, {url:req.params.name})
-  fs.readFile(__dirname+'/posts/')
+exports.post = function(req, res) {
+  var category = req.params.category
+  var postName = req.params.postName
+  loadPost(category, postName, function(err, postTitle, post) {
+    if(err) throw err
+    res.render('postView', {title: postTitle, content:post})
+  })
+}
+
+function loadPost(cat, name, cb) {
+  if(cat === 'improv') {
+    var post = _.find(improvBucket, {url:name})
+    fs.readFile(__dirname+'/../posts/'+cat+'/'+post.id, 'utf8', function(err, content) {
+      var htmlContent = marked(content)
+      cb(null, name, htmlContent)
+    })
+  }
+  else if(cat === 'posts') {
+    var post = _.find(postsBucket, {url:name})
+    fs.readFile(__dirname+'/../posts/'+cat+'/'+post.id, 'utf8', function(err, content) {
+      var htmlContent = marked(content)
+      cb(null, name, htmlContent)
+    })
+  }
+  else {
+    var post = _.find(techBucket, {url:name})
+    fs.readFile(__dirname+'/../posts/'+cat+'/'+post.id, 'utf8', function(err, content) {
+      var htmlContent = marked(content)
+      cb(null, name, htmlContent)
+    })
+  }
+
 }

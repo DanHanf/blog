@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', index.index);
 app.get('/oldPosts', index.list);
-app.get('/post/:postName', index.post);
+app.get('/posts/:category/:postName', index.post);
 
 
 http.createServer(app).listen(app.get('port'), function() {
