@@ -1,20 +1,16 @@
-doctype html
-html
-  head
-    title #{title}
-    link(rel='stylesheet', href='/css/style.css')
-  body
-    div#innerWrapper
-      img#logo(src='/img/logo.gif')
-      div#homeBody
-        span
-          block improv
-            div#improv!=improv
-        span
-          block post
-            div#post!=post
-        span
-          block tech
-            div#tech!=tech
-    div#oldPosts
-      a(href='/oldPosts') old posts
+extends layout
+
+block content
+  div#homeBody
+    div#stuff
+      span
+        block improv
+          div#improv!=improv
+      span
+        block post
+          div#post!=post
+      span
+        block tech
+          div#tech!=tech
+  div#oldPosts
+    a(href='/oldPosts') old posts
