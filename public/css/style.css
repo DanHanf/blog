@@ -123,3 +123,24 @@ h2 {
   height: 50%;
   background-color:#4D56E8;
 }
+
+#footer {
+  width: 100%;
+}
+#oldPosts {
+  margin-bottom: 25px;
+  margin-left: 5%;
+}
+
+#twitter {
+  float: right;
+  margin-bottom: 25px;
+  margin-right: 5%;
+}
+
+#copywrite {
+  margin-left: 26%;
+  text-decoration: none;
+  color: #0001FF;
+  text-shadow: #A3A3A3 -2px 2px
+}
