@@ -1,26 +1,23 @@
-doctype html
-html
-  head
-    title #{title}
-    link(rel='stylesheet', href='/css/style.css')
-  body
-    div#postList
-      h2 Posts
-      div#improvPosts
-        h3 improv
-        each improvPost in improvPosts
-          a(href='/posts/improv/#{improvPost.url}') #{improvPost.title}
-          br
+extends layout
+
+block content
+  div.homeBody
+    //h2 Posts
+    div.improv
+      h3 improv
+      each improvPost in improvPosts
+        a(href='/posts/improv/#{improvPost.url}') #{improvPost.title}
+        br
         hr
-      div#postPosts
-        h3 shit
-        each postPost in postPosts
-          a(href='/posts/posts/#{postPost.url}') #{postPost.title}
-          br
+    div.post
+      h3 shit
+      each postPost in postPosts
+        a(href='/posts/posts/#{postPost.url}') #{postPost.title}
+        br
         hr
-      div#techPosts
-        h3 tech
-        each techPost in techPosts
-          a(href='/posts/tech/#{techPost.url}') #{techPost.title}
-          br
+    div.tech
+      h3 tech
+      each techPost in techPosts
+        a(href='/posts/tech/#{techPost.url}') #{techPost.title}
+        br
         hr

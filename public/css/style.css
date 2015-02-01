@@ -27,7 +27,7 @@ h2 {
   height: 100px;
   margin-left: 26%;
 }
-#homeBody {
+.homeBody {
   padding:5px;
   margin: auto;
   width: 90%;
@@ -37,7 +37,7 @@ h2 {
 #stuff {
   margin-left : 1.5%;
 }
-#improv {
+.improv {
   float: left;
   width: 32%;
   height: 475px;
@@ -47,16 +47,16 @@ h2 {
   text-shadow: #A3A3A3 -3px 3px;
   overflow: auto;
 }
-#improv h1 {
+.improv h1 {
   width: 90%;
   text-align: center;
   margin-left:3%;
 }
-#improv p {
+.improv p {
   height: 400px;
   padding: 15px;
 }
-#post {
+.post {
   float: left;
   border: inset #A3A3A3;
   width: 32%;
@@ -66,18 +66,18 @@ h2 {
   text-shadow: #A3A3A3 -3px 3px;
   overflow: auto;
 }
-#post h1 {
+.post h1 {
   width: 90%;
   text-align: center;
   margin-left:3%;
 
 }
-#post p {
+.post p {
   /*height:400px;*/
   padding-left: 15px;
   padding-right: 15px;
 }
-#tech {
+.tech {
   float: left;
   width: 32%;
   height: 475px;
@@ -87,12 +87,12 @@ h2 {
   text-shadow: #A3A3A3 -3px 3px;
   overflow: auto;
 }
-#tech h1 {
+.tech h1 {
   width: 90%;
   text-align: center;
   margin-left:3%;
 }
-#tech p {
+.tech p {
   height:400px;
   padding: 15px;
 }
@@ -127,6 +127,12 @@ h2 {
 #footer {
   width: 100%;
 }
+
+#postList {
+  background-color:#4D56E8;
+
+}
+
 #oldPosts {
   margin-bottom: 25px;
   margin-left: 5%;
@@ -140,6 +146,7 @@ h2 {
 
 #copywrite {
   margin-left: 26%;
+  margin-top: 5px ;
   text-decoration: none;
   color: #0001FF;
   text-shadow: #A3A3A3 -2px 2px
