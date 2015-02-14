@@ -106,6 +106,18 @@ h2 {
   padding: 5px;
 }
 
+#postContent {
+  background-color:#B5B5B5;
+  border: outset #A3A3A3;
+  color: #000;
+  text-shadow: #A3A3A3 -3px 3px;
+  overflow: auto;
+  padding: 5px;
+  width: 85%;
+  height:475px;
+  margin:  auto;
+}
+
 #innerWrapperPost {
   background-color:#0001FF;
   border: outset #23BD00;
@@ -130,7 +142,10 @@ h2 {
 
 #postList {
   background-color:#4D56E8;
+}
 
+.postLink {
+  margin: 5px;
 }
 
 #oldPosts {
