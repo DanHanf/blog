@@ -48,6 +48,7 @@ function getTechContent(cb) {
 }  
 
 function getFileList(dir, cb) {
+  console.log(dir)
   fs.readdir(__dirname+'/../posts/'+dir+'/', function(err, files) {
     getList(files, dir, function(err,posts) {
       cb(null, posts)
@@ -60,12 +61,11 @@ exports.list = function(req, res) {
     if(err) throw err
     improvBucket = improvPosts
     getFileList('posts', function(err,postPosts) {
-      if(err) throw err
+      if(err) throw err 
       postsBucket = postPosts
       getFileList('tech', function(err,techPosts) {
         if(err) throw err
         techBucket = techPosts
-        console.log(techBucket)
         res.render('oldPosts', {improvPosts:improvPosts, postPosts:postPosts, techPosts:techPosts, title:'ye ole postses'})
       })
     })
@@ -76,17 +76,19 @@ function getList(files, cat, cb) {
   postInfos = []
   var i = 1
   _.each(files, function(file) {
-    fs.readFile(__dirname + '/../posts/'+cat+'/'+file, 'utf8', function(err, content) {
-      console.log(content.split('---')[0].split('===')[1])
-      var title = content.split('---')[0].split('===')[1].replace(/(\r\n|\n|\r)/gm, "")
-      var url = title.split(' ').join('-').replace(/(\r\n|\n|\r)/gm, "")
-      postInfos.push({id:file, title:title, url:url})
-      if(i >= files.length) {
-        postInfos = _.sortBy(postInfos, 'id')
-        cb(null, postInfos)
-      }
-      i++
-    })
+    if(file.split('.')[1] === 'md') {
+      fs.readFile(__dirname + '/../posts/'+cat+'/'+file, 'utf8', function(err, content) {
+        var title = content.split('---')[0].split('===')[1].replace(/(\r\n|\n|\r)/gm, "")
+        var url = title.split(' ').join('-').replace(/(\r\n|\n|\r)/gm, "")
+        postInfos.push({id:file, title:title, url:url})
+        if(i >= files.length) {
+          postInfos = _.sortBy(postInfos, 'id')
+          cb(null, postInfos)
+        }
+        i++
+      })
+    }
+    else i++
   })
 }
 
@@ -109,17 +111,13 @@ function loadPost(cat, name, cb) {
   }
   else if(cat === 'posts') {
     var post = _.find(postsBucket, {url:name})
-    console.log(postsBucket)
     fs.readFile(__dirname+'/../posts/'+cat+'/'+post.id, 'utf8', function(err, content) {
       var htmlContent = marked(content)
       cb(null, name, htmlContent)
     })
   }
   else if(cat === 'tech') {
-    console.log(techBucket)
     var post = _.find(techBucket, {url:name})
-    console.log(post)
-    console.log(name)
     fs.readFile(__dirname+'/../posts/'+cat+'/'+post.id, 'utf8', function(err, content) {
       var htmlContent = marked(content)
       cb(null, name, htmlContent)
