@@ -65,6 +65,7 @@ exports.list = function(req, res) {
       getFileList('tech', function(err,techPosts) {
         if(err) throw err
         techBucket = techPosts
+        console.log(techBucket)
         res.render('oldPosts', {improvPosts:improvPosts, postPosts:postPosts, techPosts:techPosts, title:'ye ole postses'})
       })
     })
@@ -76,6 +77,7 @@ function getList(files, cat, cb) {
   var i = 1
   _.each(files, function(file) {
     fs.readFile(__dirname + '/../posts/'+cat+'/'+file, 'utf8', function(err, content) {
+      console.log(content.split('---')[0].split('===')[1])
       var title = content.split('---')[0].split('===')[1].replace(/(\r\n|\n|\r)/gm, "")
       var url = title.split(' ').join('-').replace(/(\r\n|\n|\r)/gm, "")
       postInfos.push({id:file, title:title, url:url})
@@ -107,13 +109,17 @@ function loadPost(cat, name, cb) {
   }
   else if(cat === 'posts') {
     var post = _.find(postsBucket, {url:name})
+    console.log(postsBucket)
     fs.readFile(__dirname+'/../posts/'+cat+'/'+post.id, 'utf8', function(err, content) {
       var htmlContent = marked(content)
       cb(null, name, htmlContent)
     })
   }
-  else {
+  else if(cat === 'tech') {
+    console.log(techBucket)
     var post = _.find(techBucket, {url:name})
+    console.log(post)
+    console.log(name)
     fs.readFile(__dirname+'/../posts/'+cat+'/'+post.id, 'utf8', function(err, content) {
       var htmlContent = marked(content)
       cb(null, name, htmlContent)
