@@ -5,5 +5,7 @@ block content
     //h2 Posts
     div
       h2 ye olde posts
-      each post in posts
-        a(href='posts/#{post.url}') #{post.title}
+      ul
+        each post in posts
+          li
+            a(href='posts/#{post.url}') #{post.title}

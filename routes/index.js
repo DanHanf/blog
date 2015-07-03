@@ -13,6 +13,7 @@ exports.latestPost = function(req, res) {
   fs.readdir(__dirname+'/../posts', function(err, posts) {
     posts = posts.filter(getMD)
     fs.readFile(__dirname+'/../posts/'+posts[posts.length-1], 'utf8', function(err, content) {
+      console.log(content)
       res.render('latestPost', {title: "what's new", post:marked(content)})
     })
   })
@@ -27,26 +28,41 @@ exports.list = function(req, res) {
   var i = 1
   fs.readdir(__dirname+'/../posts', function(err, files) {
     files = files.filter(getMD)
-    postBucket = files
     _.each(files, function(file) {
       fs.readFile(__dirname+'/../posts/'+file, 'utf8', function(err, content) {
         var title = content.split('===')[0].replace(/(\r\n|\n|\r)/gm, "")
         var url = title.split(' ').join('-').replace(/(\r\n|\n|\r)/gm, "")
         postInfos.push({id:file, title:title, url:url})
-        if(i = files.length) {
+        if(i === files.length) {
           postInfos = _.sortBy(postInfos, 'id')
-          console.log(postInfos)
+          postBucket = postInfos.reverse()
           res.render('oldPosts', {title:'a history lesson in your hands', posts:postInfos})
         }
-        else i++
+        i++
       })
-      i++
     })
   })
 }
 
 exports.getPost = function(req, res) {
-
+  if(postBucket) {
+    var post = _.find(postBucket, {url:req.params.postName})
+    fs.readFile(__dirname+'/../posts/'+post.id, 'utf8', function(err, content) {
+      res.render('postView', {title:post.title,content:marked(content)})
+    })
+  }
+  fs.readdir(__dirname+'/../posts', function(err, files) {
+    files = files.filter(getMD)
+    _.each(files, function(file) {
+      fs.readFile(__dirname+'/../posts/'+file, 'utf8', function(err, content) {
+        var title = content.split('===')[0].replace(/(\r\n|\n|\r)/gm, "")
+        var url = title.split(' ').join('-').replace(/(\r\n|\n|\r)/gm, "")
+        if(url === req.params.postName) {
+          res.render('postView', {title:title, content:marked(content)})
+        }
+      })
+    })
+  })
 }
 
 // get an array of folder contents, return only .md files
