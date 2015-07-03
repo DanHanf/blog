@@ -1,14 +1,9 @@
 extends layout
 
 block content
-  div.homeBody
-    div#stuff
-      span
-        block improv
-          div.improv!=improv
-      span
-        block post
-          div.post!=post
-      span
-        block tech
-          div.tech!=tech
+  div.splashBody
+    div#portraitPortal
+      a(href='/latestPost')
+        img#selfPortrait(src='/img/selfPortrait.png')
+      span.caption a self portrait of the artist as an egg
+    

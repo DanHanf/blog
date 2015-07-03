@@ -16,12 +16,15 @@ app.set('view engine', 'jade');
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
+app.use(express.favicon('favicon.ico'));
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', index.index);
 app.get('/oldPosts', index.list);
-app.get('/posts/:category/:postName', index.post);
+app.get('/posts/:postName', index.getPost);
+app.get('/latestPost', index.latestPost);
+app.get('/about', index.about);
 
 
 http.createServer(app).listen(app.get('port'), function() {

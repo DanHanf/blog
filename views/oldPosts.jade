@@ -3,21 +3,7 @@ extends layout
 block content
   div.homeBody
     //h2 Posts
-    div.improv
-      h2 improv
-      each improvPost in improvPosts
-        a.postLink(href='/posts/improv/#{improvPost.url}') #{improvPost.title}
-        br
-        hr
-    div.post
-      h2 shit
-      each postPost in postPosts
-        a.postLink(href='/posts/posts/#{postPost.url}') #{postPost.title}
-        br
-        hr
-    div.tech
-      h2 tech
-      each techPost in techPosts
-        a.postLink(href='/posts/tech/#{techPost.url}') #{techPost.title}
-        br
-        hr
+    div
+      h2 ye olde posts
+      each post in posts
+        a(href='posts/#{post.url}') #{post.title}

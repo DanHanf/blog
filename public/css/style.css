@@ -13,6 +13,17 @@ h2 {
   border: dotted #A3A3A3;
   color: #EEFF37;
 }
+
+#selfPortrait {
+  margin: auto;
+  border-radius: 100%;
+}
+
+.caption {
+  font-style: italic;
+  font-size: 12px;
+}
+
 #innerWrapper {
   background-color:#0001FF;
   border: outset #23BD00;
