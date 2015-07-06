@@ -3,9 +3,9 @@ extends layout
 block content
   div.homeBody
     //h2 Posts
-    div
-      h2 ye olde posts
-      ul
+    div#list
+      ul#postList
         each post in posts
           li
             a(href='posts/#{post.url}') #{post.title}
+          br

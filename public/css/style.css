@@ -1,151 +1,95 @@
 body {
-  background-color:#EEFF37;
-  height: 97%;
-  width: 99%;
+  padding-right: 25%;
+  padding-left:25%;
+  height:100%;
+  font: 14px "", Helvetica;
+  background-color: #FAFAFA;
 }
 html {
-  height: 99%;
+  height: 100%;
 }
-h1 {
-  border: outset #A3A3A3;
+
+a {
+  text-decoration: none;
+  color: #FF0000;
 }
-h2 {
-  border: dotted #A3A3A3;
-  color: #EEFF37;
+
+a:hover {
+  background-color: #FF0000;
+  color: #FFF;
+}
+
+#nav {
+  text-align: center;
+  padding-bottom: 10px;
+  letter-spacing: .1em;
+}
+
+#bodyWrapper {
+  /*background-color: #fff;*/
+}
+
+#splashBody {
+  padding-top:5%;
+  position:relative;
+  height:80%;
 }
 
 #selfPortrait {
+  display: block;
   margin: auto;
   border-radius: 100%;
 }
 
 .caption {
   font-style: italic;
-  font-size: 12px;
+  font-size: 10px;
+  padding-left: 60%;
+  padding-top: -15px;
 }
 
 #innerWrapper {
-  background-color:#0001FF;
-  border: outset #23BD00;
-  margin-top:1%;
-  margin-left:auto;
-  margin-right:auto;
-  width: 95%;
-  height: 98%;
+  height:100%;
 }
+
 #logo {
-  width: 470px;
-  height: 75px;
-  margin-left: 26%;
+  letter-spacing: 1em;
+  font-size: 25px;
+  text-align: center;
+  color: #00C42E;
+  font-style: italic;
+  margin: 20px;
+  margin-bottom:20px;
+}
+#logo a {
+  color: #00C42E;
+    -o-transition:.25s;
+    -ms-transition:.25s;
+    -moz-transition:.25s;
+    -webkit-transition:.25s;
+}
+#logo a:hover {
+  background-color:#00C42E;
+  color: #FFF;
 }
 .homeBody {
   padding:5px;
   margin: auto;
-  width: 90%;
-  height: 77.5%;
-  background-color:#4D56E8;
-}
-#stuff {
-  margin-left : 1.5%;
-}
-.improv {
-  float: left;
-  width: 32%;
-  height: 475px;
-  background-color:#B5B5B5;
-  border: outset #A3A3A3;
-  color: #000;
-  text-shadow: #A3A3A3 -3px 3px;
-  overflow: auto;
-}
-.improv h1 {
-  width: 90%;
-  text-align: center;
-  margin-left:3%;
-}
-.improv p {
-  /*height: 400px;*/
-  padding-left: 15px;
-  padding-right: 15px;
+  /*width: 90%;
+  height: 77.5%;*/
 }
 .post {
-  float: left;
-  border: inset #A3A3A3;
-  width: 32%;
-  height: 475px;
-  background-color:#B5B5B5;
   color: #000;
-  text-shadow: #A3A3A3 -3px 3px;
-  overflow: auto;
 }
 .post h1 {
   width: 90%;
   text-align: center;
   margin-left:3%;
-
 }
 .post p {
   /*height:400px;*/
   padding-left: 15px;
   padding-right: 15px;
-}
-.tech {
-  float: left;
-  width: 32%;
-  height: 475px;
-  background-color:#B5B5B5;
-  border: outset #A3A3A3;
-  color: #000;
-  text-shadow: #A3A3A3 -3px 3px;
-  overflow: auto;
-}
-.tech h1 {
-  width: 90%;
-  text-align: center;
-  margin-left:3%;
-}
-.tech p {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-#content {
-  background-color:#B5B5B5;
-  border: outset #A3A3A3;
-  color: #000;
-  text-shadow: #A3A3A3 -3px 3px;
-  overflow: auto;
-  padding: 5px;
-}
-
-#postContent {
-  background-color:#B5B5B5;
-  border: outset #A3A3A3;
-  color: #000;
-  text-shadow: #A3A3A3 -3px 3px;
-  overflow: auto;
-  padding: 5px;
-  width: 85%;
-  height:475px;
-  margin:  auto;
-}
-
-#innerWrapperPost {
-  background-color:#0001FF;
-  border: outset #23BD00;
-  margin-top:2%;
-  margin-left:auto;
-  margin-right:auto;
-  width: 95%;
-  height: 95%;
-}
-
-#homeBodyPost {
-  padding:10px;
-  margin: auto;
-  width: 75%;
-  height: 50%;
-  background-color:#4D56E8;
 }
 
 #footer {
@@ -153,28 +97,10 @@ h2 {
 }
 
 #postList {
-  background-color:#4D56E8;
-}
-
-.postLink {
-  margin: 5px;
+  list-style: none;
 }
 
 #oldPosts {
   margin-bottom: 25px;
   margin-left: 5%;
-}
-
-#twitter {
-  float: right;
-  margin-bottom: 25px;
-  margin-right: 5%;
-}
-
-#copywrite {
-  margin-left: 26%;
-  margin-top: 5px ;
-  text-decoration: none;
-  color: #0001FF;
-  text-shadow: #A3A3A3 -2px 2px
 }

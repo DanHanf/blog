@@ -3,15 +3,24 @@ html
   head
     title #{title}
     link(rel='stylesheet', href='/css/style.css')
+    link(rel="stylesheet" href="http://yandex.st/highlightjs/7.5/styles/default.min.css")
+    script(src="http://yandex.st/highlightjs/7.5/highlight.min.js")
+    script hljs.initHighlightingOnLoad(); 
+
   body
     div#innerWrapper
-      a(href='/')
-        img#logo(src='/img/logo.gif')
+      div#logo
+        a(href='/')
+          span  welcome to dan
+      //  img#logo(src='/img/logo.gif')
+
       div#nav
         a(href='/about') about
+        |  - 
         a(href='/oldPosts') old posts
       block content
-    div#footer
-      a#oldPosts(href='/oldPosts') old posts
-      span#copywrite yo drdh did this don't take it, that would be stupid
-      a#twitter(href='http://www.twitter.com/drdemsyn' target='_blank') tweeter
+      div#footer
+        div#nav
+          a(href='/about') about
+          |  - 
+          a(href='/oldPosts') old posts

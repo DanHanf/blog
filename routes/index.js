@@ -6,16 +6,14 @@ var fs = require('fs')
   , postBucket
 
 exports.index = function(req, res) {
-  res.render('index', {title: 'welcome to dan'})
+  getLatestPost(function(latestPost) {
+    res.render('index', {title: 'welcome to dan', post:latestPost})
+  })
 }
 
 exports.latestPost = function(req, res) {
-  fs.readdir(__dirname+'/../posts', function(err, posts) {
-    posts = posts.filter(getMD)
-    fs.readFile(__dirname+'/../posts/'+posts[posts.length-1], 'utf8', function(err, content) {
-      console.log(content)
-      res.render('latestPost', {title: "what's new", post:marked(content)})
-    })
+  getLatestPost(function(content) {
+    res.render('latestPost', {title: "what's new", post:content})
   })
 }
 
@@ -65,7 +63,17 @@ exports.getPost = function(req, res) {
   })
 }
 
-// get an array of folder contents, return only .md files
+// get an array of folder contents, return only .md files //
 function getMD(posts) {
   return path.extname(posts)==='.md'
+}
+
+// get latest post //
+function getLatestPost(cb) {
+  fs.readdir(__dirname+'/../posts', function(err, posts) {
+    posts = posts.filter(getMD)
+    fs.readFile(__dirname+'/../posts/'+posts[posts.length-1], 'utf8', function(err, content) {
+      cb(marked(content))
+    })
+  })
 }
