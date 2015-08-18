@@ -30,7 +30,7 @@ exports.list = function(req, res) {
       fs.readFile(__dirname+'/../posts/'+file, 'utf8', function(err, content) {
         var title = content.split('===')[0].replace(/(\r\n|\n|\r)/gm, "")
         var url = title.split(' ').join('-').replace(/(\r\n|\n|\r)/gm, "")
-        postInfos.push({id:file, title:title, url:url})
+        postInfos.push({id:file, title:title, url:encodeURIComponent(url)})
         if(i === files.length) {
           postInfos = _.sortBy(postInfos, 'id')
           postBucket = postInfos.reverse()
@@ -44,7 +44,7 @@ exports.list = function(req, res) {
 
 exports.getPost = function(req, res) {
   if(postBucket) {
-    var post = _.find(postBucket, {url:req.params.postName})
+    var post = _.find(postBucket, {url:encodeURIComponent(req.params.postName)})
     fs.readFile(__dirname+'/../posts/'+post.id, 'utf8', function(err, content) {
       res.render('postView', {title:post.title,content:marked(content)})
     })
