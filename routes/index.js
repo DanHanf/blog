@@ -21,6 +21,10 @@ exports.about = function(req, res) {
   res.render('about', {title: 'the 26th chamber'})
 }
 
+exports.projects = function(req, res) {
+  res.render('projects', {title: 'things i have done'})
+}
+
 exports.list = function(req, res) {
   postInfos = []
   var i = 1

@@ -25,6 +25,7 @@ app.get('/oldPosts', index.list);
 app.get('/posts/:postName', index.getPost);
 app.get('/latestPost', index.latestPost);
 app.get('/about', index.about);
+app.get('/projects', index.projects)
 
 
 http.createServer(app).listen(app.get('port'), function() {

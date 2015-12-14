@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1#projectsHeader THINGS I HAVE DONE
+  div#projects
+    div
+      h2 <a href="http://chs-tonight.com">chs-tonight</a>
+      a(href='https://github.com/DanHanf/chs-source') GitHub
+      p chs-tonight is a passion project I started when I was still living in Charleston, SC. It is essentially a collection of scrapers the collect event data from a number of bar, theatres, and other venues around Charleston. The data is stored and presented in such a way that you can visit the website and see at a glance what is happening around Charleston over the coming week. The whole process is 100% autonomous (once a scraper for a venue is written, of course) and the page is hosted on GitHub Pages. 
+      p I wrote a series of blog posts explaining how the whole thing works, which you can find <a href="http://xoxodan.com/posts/CHS-TONIGHT%2C-PART-1%3A-HOW-DO%3F">here</a>, <a href="http://xoxodan.com/posts/CHS-TONIGHT%2C-PART-2%3A-LEVELDB-AND-HTML-GENERATION--or--HOW-TO-BORE-PEOPLE-WHO-DON'T-PROGRAM-(AND-SOME-WHO-DO)-TO-DEATH">here</a>, and <a href="http://xoxodan.com/posts/CHS-TONIGHT%2C-PART-3%3A-ACHEIVE-HIP-MINIMALIST-STYLES-BY-NOT-HAVING-FUN">here</a>
+      p The project is still in development and I'd love to accept your pull request if you feel like adding a scraper, <a href="https://github.com/DanHanf/chs-source/issues">resolving an issue</a>, or whatever else.
+      hr
+    div
+      h2 <a href="http://xoxodan.com/posts/COOL-CITIBIKE-DATA-VISUALIZATION">CitiBike Data Visualization</a>
+      a(href="https://github.com/DanHanf/citibike-nyc") GitHub
+      p After I moved to NYC, I got pretty interested in CitiBike. I saw that CitiBike hosts their trip history on <a href="https://www.citibikenyc.com/system-data">their website</a>, so I thought it would be cool to visualize it. This was my first real foray into using canvas, and I think it turned out pretty well. It may not be extremely informative, but it creates videos that look pretty neat.
+      hr
+    div
+      h2 CitiBike Station Tracker
+      a(href="https://github.com/DanHanf/citibike-station-tracker") GitHub
+      br
+      img(src="http://i.imgur.com/2AaLwEN.png" width="400px")
+      p Not content with the visualization project, I built a little app with <a href="http://koajs.com/">Koa</a> and <a href="http://leafletjs.com/">Leaflet</a> that tracks CitiBike stations throughout New York. As you can see, if shows the ID, coordinates, and number of available bikes for each station. See the repo Readme for instructions on how to run it.
+
+      br
