@@ -17,8 +17,12 @@
   },
   "dependencies": {
     "express": "3.0.0rc4",
+    "file-encryptor": "^0.1.0",
     "jade": "*",
+    "lodash": "~2.4.1",
     "marked": "~0.3.2",
-    "lodash": "~2.4.1"
+    "uniq": "^1.0.1",
+    "validator": "^4.5.0",
+    "xoauth2": "^1.1.0"
   }
 }

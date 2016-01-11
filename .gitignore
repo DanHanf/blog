@@ -1,0 +1,11 @@
+# envConfig
+envConfig.json
+
+# email list
+secrets
+
+# ds store
+.DS_STORE
+
+# node modules
+node_modules

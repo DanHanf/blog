@@ -5,6 +5,7 @@ var express = require('express')
   , routes = require('./routes')
   , _ = require('lodash')
   , index = require('./routes/index')
+  , autoLen = require('./routes/autoLen.js')
 
 
 var app = express();
@@ -25,7 +26,9 @@ app.get('/oldPosts', index.list);
 app.get('/posts/:postName', index.getPost);
 app.get('/latestPost', index.latestPost);
 app.get('/about', index.about);
-app.get('/projects', index.projects)
+app.get('/projects', index.projects);
+app.get('/dailyLen', autoLen.get);
+app.post('/dailyLen/signUp', autoLen.signUp);
 
 
 http.createServer(app).listen(app.get('port'), function() {
