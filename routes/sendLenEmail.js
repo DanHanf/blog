@@ -24,8 +24,8 @@ var transporter = nodemailer.createTransport({
   },
 })
 
-encryptor.decryptFile('./secrets/emails.dat', './secrets/emailList.csv', key, function(err) {
-  fs.readFile('./secrets/emailList.csv', 'utf8', function(err, data) {
+encryptor.decryptFile(__dirname+'/secrets/emails.dat', './secrets/emailList.csv', key, function(err) {
+  fs.readFile(__dirname+'/secrets/emailList.csv', 'utf8', function(err, data) {
     var emails = data.split(',')
     require('uniq')(emails)
     transporter.sendMail({
@@ -38,7 +38,7 @@ encryptor.decryptFile('./secrets/emails.dat', './secrets/emailList.csv', key, fu
         console.log(err)
       }
       else {
-        fs.unlink('./secrets/emailList.csv', function() {
+        fs.unlink(__dirname+'/secrets/emailList.csv', function() {
         })
       }
     }
