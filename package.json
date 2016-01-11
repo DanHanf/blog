@@ -23,6 +23,7 @@
     "marked": "~0.3.2",
     "uniq": "^1.0.1",
     "validator": "^4.5.0",
-    "xoauth2": "^1.1.0"
+    "xoauth2": "^1.1.0",
+    "nodemailer": "^1.11.0"
   }
 }
