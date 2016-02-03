@@ -9,9 +9,9 @@ app.controller('readabilityAppController', function() {
   readApp.getScore = function() {
     var text = readApp.textDocument
     console.log(text)
-    if(text === undefined || text === '') {readApp.readabilityAppScore = "Your Flesch-Kinkaid Readability Score is 0. You didn't write anything, you werido!"; return}
+    if(text === undefined || text === '') {readApp.readabilityAppScore = "Your Flesch-Kincaid Readability Score is 0. You didn't write anything, you werido!"; return}
     var syllables = getSyllables(text, function(syllables) {
-      readApp.readabilityAppScore = "Your Flesch-Kinkaid Readability Score is " + getScore(text, syllables)
+      readApp.readabilityAppScore = "Your Flesch-Kincaid Readability Score is " + getScore(text, syllables)
     })
   }
 })
