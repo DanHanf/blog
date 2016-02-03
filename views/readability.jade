@@ -1,0 +1,18 @@
+extends layout
+
+block extraHeader
+  script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js")
+  script(src="/js/readability.js")
+
+block content
+  div(ng-app="readabilityApp" ng-controller="readabilityAppController as readApp")#fk
+    h1 Why Rely On Your Word Processor?
+    br
+    p Instead of going through the hassle of running a readability test in your word processor, simply copy and paste your entire document onto my web site.
+    br
+    h2 Your Flesch–Kincaid Readability Score is {{readApp.readabilityAppScore}}
+    form(ng-submit="readApp.getScore()")
+      textarea(ng-model="readApp.textDocument" placeholder="Paste your document or write something" rows="10" cols="100")
+      br
+
+      input(type="submit" ng-click"readApp.getScore()" value="Get Score")
