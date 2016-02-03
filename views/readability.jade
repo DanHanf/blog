@@ -10,7 +10,7 @@ block content
     br
     p Instead of going through the hassle of running a readability test in your word processor, simply copy and paste your entire document onto my web site.
     br
-    h2 Your Flesch–Kincaid Readability Score is {{readApp.readabilityAppScore}}
+    h2 {{readApp.readabilityAppScore}}
     form(ng-submit="readApp.getScore()")
       textarea(ng-model="readApp.textDocument" placeholder="Paste your document or write something" rows="10" cols="100")
       br
