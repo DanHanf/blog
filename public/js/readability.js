@@ -8,7 +8,6 @@ app.controller('readabilityAppController', function() {
 
   readApp.getScore = function() {
     var text = readApp.textDocument
-    console.log(text)
     if(text === undefined || text === '') {readApp.readabilityAppScore = "Your Flesch-Kincaid Readability Score is 0. You didn't write anything, you werido!"; return}
     var syllables = getSyllables(text, function(syllables) {
       readApp.readabilityAppScore = "Your Flesch-Kincaid Readability Score is " + getScore(text, syllables)
@@ -29,8 +28,10 @@ function getSyllables(text, done) {
 function new_count(word) { 
   word = word.toLowerCase();
   if(word.length <= 3) { return 1; }
+  console.log(word)
   word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
   word = word.replace(/^y/, '');
+  console.log(word)
   return word.match(/[aeiouy]{1,2}/g).length;
 }
 
