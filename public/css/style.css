@@ -19,6 +19,12 @@ a:hover {
   color: #FFF;
 }
 
+img, code {
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
 #nav {
   text-align: center;
   padding-bottom: 10px;
@@ -69,7 +75,7 @@ a:hover {
   color: #FFF;
 }
 .homeBody {
-  padding:5px;
+  padding:2%;
   margin: auto;
 }
 .post {
@@ -81,8 +87,8 @@ a:hover {
   margin-left:3%;
 }
 .post p {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 10%;
+  padding-right: 10%;
   line-height: 2;
 }
 
