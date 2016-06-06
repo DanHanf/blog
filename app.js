@@ -30,6 +30,8 @@ app.get('/about', index.about);
 app.get('/projects', index.projects);
 app.get('/dailyLen', autoLen.get);
 app.post('/dailyLen/signUp', autoLen.signUp);
+app.get('/dailyLenUnsub', autoLen.unsub);
+app.post('/dailyLen/removeEmail', autoLen.removeEmail);
 app.get('/readability', readability.get);
 
 

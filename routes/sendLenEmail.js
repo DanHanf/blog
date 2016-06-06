@@ -34,7 +34,7 @@ encryptor.decryptFile(__dirname+'/../secrets/emails.dat', __dirname+'/../secrets
       from: envConfig.MY_EMAIL,
       bcc: emails,
       subject: "Your Daily Len!",
-      html: "<b>Here's your daily dose of Steal My Sunshine by Len!</b> <br /><br /> <a href='https://youtu.be/E1fzJ_AYajA'>Have a conqueror's day</a>,<br /><br />Your Daily Len"
+      html: "<b>Here's your daily dose of Steal My Sunshine by Len!</b> <br /><br /> <a href='https://youtu.be/E1fzJ_AYajA'>Have a conqueror's day</a>,<br /><br />Your Daily Len<br /><br /> <br /><a href ='http://xoxodan.com/dailyLenUnsub'>Click here</a> to unsubscribe."
     }, function(err, response) {
       if(err) {
         console.log(err)

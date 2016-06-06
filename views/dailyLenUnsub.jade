@@ -1,0 +1,28 @@
+extends layout
+
+block extraHeader
+  script(src="https://code.jquery.com/jquery-2.1.4.min.js")
+  script.
+    window.onload = function() {
+      var button = $('#submitEmail')
+      button.click(function() {
+        $.post('/dailyLen/removeEmail', {emailAddress:$('#emailAddress').val()}, function(response) {
+          if($('signupMessage').val() === undefined) {
+            $('#signupMessage').text('')
+            $('#signupMessage').append(response)
+            }
+          })
+        })
+      }
+
+block content
+
+  div#dailyLen
+    br
+    div#signUp
+      h2 Enter your email to tell the world you hate <i>Steal My Sunshine</i> and don't want to get these emails anymore.
+      input#emailAddress(type='email' placeholder='your@email.here')
+      button#submitEmail Make My Life Worse
+      br
+      br
+      p#signupMessage

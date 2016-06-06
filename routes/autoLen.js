@@ -39,5 +39,32 @@ exports.signUp = function(req, res) {
   }
 }
 
+exports.unsub = function(req, res) {
+  res.render('dailyLenUnsub', {title:'Stop Please.'})
+}
 
-
+exports.removeEmail = function(req, res) {
+  var email = req.body.emailAddress
+  if(validator.isEmail(email) === true) {
+    encryptor.decryptFile('./secrets/emails.dat', './secrets/emailList.csv', key, function(err) {
+      fs.readFile('./secrets/emailList.csv', 'utf8', function(err, data) {
+        var emails = data.split(',')
+        if(emails.indexOf(email) < 0) {
+          res.send("You aren't even on the list, man.")
+        }
+        else {
+          emails.splice(emails.indexOf(email), 1)
+          fs.writeFile('./secrets/emailList.csv', emails, function(err) {
+            if(err) throw err
+            fs.unlink('./secrets/emails.dat', function(err) {
+              encryptor.encryptFile('./secrets/emailList.csv', './secrets/emails.dat', key, function() {
+                fs.unlink('./secrets/emailList.csv')
+                res.send('You have unsubscribed.')
+              })
+            })
+          })
+        }
+      })
+    })
+  }
+}
