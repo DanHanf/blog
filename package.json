@@ -26,7 +26,6 @@
     "xoauth2": "^1.1.0",
     "nodemailer": "^1.11.0",
     "turf-point": "2.0.1",
-    "turf-featurecollection": "1.0.1",
-    "request": "2.81.1"
+    "turf-featurecollection": "1.0.1"
   }
 }
