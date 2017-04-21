@@ -154,3 +154,8 @@ img, code {
   font-weight: bold;
   color: red;
 }
+
+#map {
+  height: 50%;
+  width: 100%;
+}

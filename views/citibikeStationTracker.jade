@@ -1,0 +1,16 @@
+extends layout
+
+block extraHeader
+  link(rel="stylesheet", href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css")
+  script(type="text/javascript", src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js")
+  script.
+    stations = !{JSON.stringify(stations)}
+  script(src="/js/citibikeStationTracker.js")
+
+block content
+  div#explanation
+    h2 This is a CitiBike Station Tracker map! 
+    p It shows where CitiBike stations are located in New York City & parts of New Jersey that are honorary bits of NYC. You can click on the points for more detailed information, like the exact coordinates of the station and how many available bikes there are! 
+    p It is cool!
+    br
+  div#map

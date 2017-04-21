@@ -7,6 +7,7 @@ var express = require('express')
   , index = require('./routes/index')
   , autoLen = require('./routes/autoLen.js')
   , readability = require('./routes/readability.js')
+  , citibikeStationTracker = require('./routes/citibikeStationTracker.js')
 
 
 var app = express();
@@ -33,6 +34,7 @@ app.post('/dailyLen/signUp', autoLen.signUp);
 app.get('/dailyLenUnsub', autoLen.unsub);
 app.post('/dailyLen/removeEmail', autoLen.removeEmail);
 app.get('/readability', readability.get);
+app.get('/citibikeStationTracker', citibikeStationTracker.get);
 
 
 http.createServer(app).listen(app.get('port'), function() {
